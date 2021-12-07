@@ -18,12 +18,11 @@
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <form string="Reportes Financieros" create="false" class="form_business_report">
-                <header>                   
+                <header>    
+                    <button type="object" name="generate_financial_report"  icon="fa-file-pdf-o"/>
                 </header>
                 <sheet>
-                    <div class="oe_button_box" name="button_box">
-                        <button type="object" name="generate_financial_report" class="oe_stat_button" icon="fa-file-pdf-o"></button>
-                    </div>
+                    <div class="oe_button_box" name="button_box"></div>
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" string="Nombre"/>
                         <h1><field name="name" readonly="1"/></h1>

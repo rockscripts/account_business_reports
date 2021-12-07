@@ -6,7 +6,7 @@
                 report_type="qweb-pdf" 
                 file="account_business_reports.informe_cash_moves_pdf_template" 
                 name="account_business_reports.informe_cash_moves_pdf_template" 
-                menu="True"
+                menu="False"
                 />
 
         <record id="business_report_cash_moves" model="report.paperformat">

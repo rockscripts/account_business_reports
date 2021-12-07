@@ -55,6 +55,9 @@
                  #gross profit
                 'views/reports/informe_ganancia_bruta/base.xml',
                 'views/reports/informe_ganancia_bruta/informe_ganancia_bruta.xml',
+                #cash moves
+                'views/reports/informe_movimientos_caja/base.xml',
+                'views/reports/informe_movimientos_caja/informe_tax_sale.xml',
 
                 'views/menu.xml',
             ],

@@ -6,10 +6,10 @@
                 report_type="qweb-pdf" 
                 file="account_business_reports.informe_tax_purchase_pdf_template" 
                 name="account_business_reports.informe_tax_purchase_pdf_template" 
-                menu="True"
+                menu="False"
                 />
 
-        <record id="business_report_returns" model="report.paperformat">
+        <record id="business_report_tax_purchase" model="report.paperformat">
             <field name="name">Impuestos Compras</field>
             <field name="default" eval="True" />
             <field name="format">custom</field>

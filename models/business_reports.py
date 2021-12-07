@@ -35,7 +35,19 @@ class business_reports(models.Model):
 
     def generate_financial_report(self):
         if(self.report_type == str('informe_credit_notes_discounts')):
+            return self.env.ref('account_business_reports.informe_credit_notes_discounts_pdf').report_action(self)
+        if(self.report_type == str('informe_credit_notes_returns')):
+            return self.env.ref('account_business_reports.informe_credit_notes_returns_pdf').report_action(self)
+        if(self.report_type == str('informe_tax_purchase')):
+            return self.env.ref('account_business_reports.informe_tax_purchase_pdf').report_action(self)
+        if(self.report_type == str('informe_tax_sale')):
             return self.env.ref('account_business_reports.informe_tax_sale_pdf').report_action(self)
+        if(self.report_type == str('informe_movimientos_caja')):
+            return self.env.ref('account_business_reports.informe_cash_moves_pdf').report_action(self)
+        if(self.report_type == str('informe_ganancia_liquida')):
+            return self.env.ref('account_business_reports.informe_net_profit_pdf').report_action(self)
+        if(self.report_type == str('informe_ganancia_bruta')):
+            return self.env.ref('account_business_reports.informe_gross_profit_pdf').report_action(self)
 
     def get_tax(self, _id):
         tax = self.env['account.tax'].sudo().browse(int(_id))
