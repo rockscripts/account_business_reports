@@ -1,0 +1,14 @@
+<odoo>
+    <data>        
+        <record id="view_account_move_reversal_inherit" model="ir.ui.view">
+            <field name="name">account.move.reversal.form</field>
+            <field name="model">account.move.reversal</field>
+            <field name="inherit_id" ref="account.view_account_move_reversal" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/group/group/field[@name='reason']" position="replace">
+                     <field name="reason" string="Discrepancia"/>
+                </xpath>
+            </field>
+        </record>        
+    </data>
+</odoo>

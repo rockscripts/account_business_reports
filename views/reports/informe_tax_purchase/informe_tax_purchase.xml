@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="informe_tax_purchase_pdf_template_format">
+            <t t-call="web.external_layout">
+                <link rel="stylesheet" href="/account_business_reports/static/src/css/informes.css" type="text/css"/>  
+                <div class="page">
+                    <!--HEADER-->
+                    <div style="text-align:center;padding:6px;border-bottom:1px solid #ccc">
+                        <t t-esc="o.name"/>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="pos-ticket-body">
+                        <div class="receipt-row">
+                            <div clas="lef" style="display:table-cell;"><i class="fa fa-gopuram"></i>  Impuestos</div> 
+                            <div style="margin-left: 20px">
+                                <t t-set="taxes" t-value="o.get_purchase_taxes()" />
+                                <t t-if="taxes">                                  
+                                    <t t-foreach="taxes" t-as="tax">
+                                        <t t-set="_tax" t-value="o.get_tax(tax)" />
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <t t-esc="_tax.name"></t>:
+                                                </td>
+                                                <td class="td-padding">
+                                                    <t t-set="_total_amount" t-value="o.get_tax_total(taxes, _tax.id)" />
+                                                    <t t-esc="_total_amount"></t>
+                                                </td> 
+                                            </tr>
+                                        </table>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr style="border:1px solid #777;"></hr>
+                </div>                    	
+            </t>
+        </template>
+
+        <template id="informe_tax_purchase_pdf_template">
+		    <t t-call="web.html_container">
+                <div class="header">
+                </div>
+		        <t t-foreach="docs" t-as="o">
+		            <t t-call="account_business_reports.informe_tax_purchase_pdf_template_format" />
+		        </t>
+                <div class="footer">
+                </div>
+		    </t>
+		</template>
+
+</odoo>

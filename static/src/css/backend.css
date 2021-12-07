@@ -1,0 +1,19 @@
+.informe_ganancia_liquida
+{
+    display: table;
+}
+.informe_ganancia_liquida .form-group
+{
+    width: 43%;
+    float: left;
+    margin: 2%;
+}
+.informe_ganancia_liquida .dropdown-menu
+{
+    display: block;
+    position: initial;
+}
+h5 i
+{
+    padding-right: 8px;
+}

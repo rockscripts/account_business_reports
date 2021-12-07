@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+          <record id="dashboard_business_report_001" model="business.reports">
+            <field name="name">Rectificativas Descuentos</field>
+            <field name="report_type">informe_credit_notes_discounts</field>
+          </record>
+          <record id="dashboard_business_report_002" model="business.reports">
+            <field name="name">Rectificativas Devoluciones</field>
+            <field name="report_type">informe_credit_notes_returns</field>
+          </record>
+          <record id="dashboard_business_report_003" model="business.reports">
+            <field name="name">Impuestos en compras</field>
+            <field name="report_type">informe_tax_purchase</field>
+          </record>
+          <record id="dashboard_business_report_004" model="business.reports">
+            <field name="name">Impuestos en ventas</field>
+            <field name="report_type">informe_tax_sale</field>
+          </record>
+          <record id="dashboard_business_report_005" model="business.reports">
+            <field name="name">Movimientos en Caja</field>
+            <field name="report_type">informe_movimientos_caja</field>
+          </record>
+          <record id="dashboard_business_report_006" model="business.reports">
+            <field name="name">Ganancia Liquida</field>
+            <field name="report_type">informe_ganancia_liquida</field>
+          </record>
+          <record id="dashboard_business_report_007" model="business.reports">
+            <field name="name">Ganancia Bruta</field>
+            <field name="report_type">informe_ganancia_bruta</field>
+          </record>
+          <record id="dashboard_business_report_008" model="business.reports">
+            <field name="name">Gastos</field>
+            <field name="report_type">informe_gastos</field>
+          </record>
+    </data>
+</odoo>

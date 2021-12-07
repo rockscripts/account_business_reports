@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_business_reports_account_business_reports,account_business_reports.account_business_reports,model_account_business_reports_account_business_reports,base.group_user,1,1,1,1
+access_business_reports,account_business_reports.business_reports,model_business_reports,base.group_user,1,1,1,1

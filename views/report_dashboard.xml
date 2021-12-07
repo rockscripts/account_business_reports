@@ -1,0 +1,103 @@
+<odoo>
+    <!-- tree view -->
+    <record id="busines_reports_tree" model="ir.ui.view">
+        <field name="name">Reportes Financieros Tree</field>
+        <field name="model">business.reports</field>
+        <field name="type">tree</field>        
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <!-- form view -->
+    <record id="busines_reports_form" model="ir.ui.view">
+        <field name="name">Reportes Financieros Form</field>
+        <field name="model">business.reports</field>     
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Reportes Financieros" create="false" class="form_business_report">
+                <header>                   
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="generate_financial_report" class="oe_stat_button" icon="fa-file-pdf-o"></button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Nombre"/>
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                            <group>
+                                
+                                <group>
+                                  <h5 attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts', 'informe_credit_notes_returns','informe_ganancia_bruta'))]}"><i class="fa fa-user"/>User</h5>
+                                    <field name="seller" attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts', 'informe_credit_notes_returns','informe_ganancia_bruta'))]}"/>
+                                    <field name="partner" attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts', 'informe_credit_notes_returns','informe_gastos','informe_movimientos_caja'))]}"/>
+                                </group>
+                                
+                                <group>
+                                  <h5 attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts', 'informe_credit_notes_returns','informe_ganancia_bruta'))]}"><i class="fa fa-user"/>Comprobantes</h5>
+                                    <field name="invoice_site"  attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts','informe_credit_notes_returns','informe_ganancia_bruta','informe_ganancia_liquida'))]}"/>
+                                    <!--
+                                        <field name="pos_config" attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts','informe_credit_notes_returns','informe_ganancia_bruta','informe_ganancia_liquida'))]}"/>
+                                    -->
+                                    <field name="payment_type" attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts', 'informe_credit_notes_returns','informe_ganancia_bruta'))]}"/> 
+                                </group>
+                            </group>
+                            <group>
+                               
+                                <group>
+                                   <h5 attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts', 'informe_credit_notes_returns','informe_ganancia_bruta'))]}"><i class="fa fa-dropbox"/>Productos</h5>
+                                    <field name="product_category" string="Categoria" attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts', 'informe_credit_notes_returns','informe_ganancia_bruta'))]}"/>
+                                    <field name="product_brand" attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts', 'informe_credit_notes_returns','informe_ganancia_bruta'))]}"/>
+                                </group>
+                                
+                                <group>
+                                  <h5 attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts', 'informe_credit_notes_returns','informe_ganancia_bruta'))]}"><i class="fa fa-rocket"/>Lanzamiento</h5>
+                                        <field name="category_executed" attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts', 'informe_credit_notes_returns','informe_ganancia_bruta'))]}"/>
+                                        <field name="operation_executed" attrs="{'invisible': [('report_type','in',('informe_credit_notes_discounts', 'informe_credit_notes_returns','informe_ganancia_bruta'))]}"/>
+                                </group>                                                     
+                                <group>
+                                    <h5><i class="fa fa-calendar"/>Periodo</h5>
+                                    <field name="date_start"/>
+                                    <field name="date_ends"/>
+                                </group>                                
+                                <group>
+                                    <field name="report_type" readonly="1"/>
+                                </group>
+                            </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_business_reports_kanban" model="ir.ui.view" >
+        <field name="name">business.reports</field>
+        <field name="model">business.reports</field>
+        <field name="arch" type="xml">
+            <kanban version="7.0">
+                <field name="name" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                            <div class="oe_kanban_details">
+                                <h4>
+                                    <i class="fa fa-file"></i>  <a type="open"><field name="name"/></a>
+                                </h4>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_business_reports" model="ir.actions.act_window">
+        <field name="name">Reportes Financieros</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">business.reports</field>
+        <field name="view_mode">kanban,form</field>       
+    </record>  
+
+</odoo>

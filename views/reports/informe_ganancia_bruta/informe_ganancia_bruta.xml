@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="informe_gross_profits_pdf_template_format">
+            <t t-call="web.external_layout">
+                <link rel="stylesheet" href="/account_business_reports/static/src/css/informes.css" type="text/css"/>  
+                <div class="page">
+                    <div style="text-align:center;padding:6px;border-bottom:1px solid #ccc">
+                        <t t-esc="o.name"/>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="pos-ticket-body">
+                        <div class="receipt-row">
+                            <table>
+                                <tr>
+                                    <td>
+                                        Total Devoluciones:
+                                    </td>
+                                    <td class="td-padding">  
+                                         <t t-esc="o.get_credit_note_total_returns()" />
+                                    </td> 
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <hr style="border:1px solid #777;"></hr>
+                </div>                    	
+            </t>
+        </template>
+
+        <template id="informe_gross_profits_pdf_template">
+		    <t t-call="web.html_container">
+                <div class="header">
+                </div>
+		        <t t-foreach="docs" t-as="o">
+		            <t t-call="account_business_reports.informe_gross_profits_pdf_template_format" />
+		        </t>
+                <div class="footer">
+                </div>
+		    </t>
+		</template>
+
+</odoo>
